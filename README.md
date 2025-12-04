@@ -149,6 +149,8 @@ The `app/` folder contains a **Streamlit** app that:
   - risk-bucket distribution
 - Lists recent **high risk** incidents.
 
+This is the operational view meant for non technical stakeholders.
+
 ---
 
 ## 8. LLM Insights (Narrative Analysis)
@@ -165,7 +167,6 @@ The LLM produces a **human-readable summary** answering questions like:
  - *“Which issue types or keywords are driving high-risk incidents?”*  
  - *“How does this period compare to the previous one?”* 
 
-This is the operational view meant for non technical stakeholders.
 
 ---
 
