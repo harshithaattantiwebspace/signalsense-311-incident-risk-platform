@@ -189,7 +189,9 @@ A separate **Power BI** report is built on `mart_issues_by_region_day` with:
 - **Stream processing:** Apache Kafka
 - **Orchestration:** Apache Airflow (Docker)
 - **Transformations / marts:** dbt (BigQuery adapter)
-- **UI:** Streamlit, Power BI
+- **UI:** Streamlit
+- **Dashboard:** Power BI
+- **LLM:** GPT-5-mini
 
 > **Note:** Service account keys, `.env` files and other credentials are **not** included in this repo.  
 > To run the project yourself you will need your own GCP project, BigQuery dataset and service account with appropriate permissions.
