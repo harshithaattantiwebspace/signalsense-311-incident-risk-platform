@@ -7,7 +7,7 @@ The platform:
 - Cleans and enriches ~1M+ NYC style 311 incidents
 - Streams new incidents through **Kafka** into **BigQuery**
 - Predicts SLA breach risk with **BigQuery ML** (logistic regression, boosted trees, DNN)
-- Builds analytics marts with **dbt**
+- Builds analytics marts with **DBT**
 - Orchestrates the daily workflow with **Airflow**
 - Serves an operational UI with **Streamlit** and a BI view with **Power BI** and **LLM (GPT-5-mini) Insights**
 
