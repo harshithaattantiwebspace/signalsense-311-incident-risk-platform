@@ -1,0 +1,41 @@
+[2025-12-03T03:05:56.848+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-12-03T03:05:56.873+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: signalsense_daily_pipeline.bq_new_stream_issues manual__2025-12-03T03:05:53.532648+00:00 [queued]>
+[2025-12-03T03:05:56.884+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: signalsense_daily_pipeline.bq_new_stream_issues manual__2025-12-03T03:05:53.532648+00:00 [queued]>
+[2025-12-03T03:05:56.886+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-12-03T03:05:56.902+0000] {taskinstance.py:2330} INFO - Executing <Task(BigQueryInsertJobOperator): bq_new_stream_issues> on 2025-12-03 03:05:53.532648+00:00
+[2025-12-03T03:05:56.917+0000] {standard_task_runner.py:63} INFO - Started process 842 to run task
+[2025-12-03T03:05:56.927+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'signalsense_daily_pipeline', 'bq_new_stream_issues', 'manual__2025-12-03T03:05:53.532648+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/signalsense_pipeline.py', '--cfg-path', '/tmp/tmpzmu95paw']
+[2025-12-03T03:05:56.932+0000] {standard_task_runner.py:91} INFO - Job 9: Subtask bq_new_stream_issues
+[2025-12-03T03:05:57.053+0000] {task_command.py:426} INFO - Running <TaskInstance: signalsense_daily_pipeline.bq_new_stream_issues manual__2025-12-03T03:05:53.532648+00:00 [running]> on host cf7c287101fd
+[2025-12-03T03:05:57.180+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='signalsense_daily_pipeline' AIRFLOW_CTX_TASK_ID='bq_new_stream_issues' AIRFLOW_CTX_EXECUTION_DATE='2025-12-03T03:05:53.532648+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-12-03T03:05:53.532648+00:00'
+[2025-12-03T03:05:57.182+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-12-03T03:05:57.223+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-12-03T03:05:57.241+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/google/cloud/operators/bigquery.py", line 2854, in execute
+    hook = BigQueryHook(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/google/cloud/hooks/bigquery.py", line 166, in __init__
+    super().__init__(**kwargs)
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/google/common/hooks/base_google.py", line 274, in __init__
+    self.extras: dict = self.get_connection(self.gcp_conn_id).extra_dejson
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/hooks/base.py", line 83, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/connection.py", line 519, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `google_cloud_default` isn't defined
+[2025-12-03T03:05:57.255+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=signalsense_daily_pipeline, task_id=bq_new_stream_issues, run_id=manual__2025-12-03T03:05:53.532648+00:00, execution_date=20251203T030553, start_date=20251203T030556, end_date=20251203T030557
+[2025-12-03T03:05:57.272+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 9 for task bq_new_stream_issues (The conn_id `google_cloud_default` isn't defined; 842)
+[2025-12-03T03:05:57.306+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-12-03T03:05:57.323+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

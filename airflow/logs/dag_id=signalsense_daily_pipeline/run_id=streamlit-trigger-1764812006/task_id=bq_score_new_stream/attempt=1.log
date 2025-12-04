@@ -1,0 +1,20 @@
+[2025-12-04T01:33:48.971+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-12-04T01:33:48.989+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: signalsense_daily_pipeline.bq_score_new_stream streamlit-trigger-1764812006 [queued]>
+[2025-12-04T01:33:49.000+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: signalsense_daily_pipeline.bq_score_new_stream streamlit-trigger-1764812006 [queued]>
+[2025-12-04T01:33:49.001+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-12-04T01:33:49.014+0000] {taskinstance.py:2330} INFO - Executing <Task(BigQueryInsertJobOperator): bq_score_new_stream> on 2025-12-04 01:33:36.726878+00:00
+[2025-12-04T01:33:49.024+0000] {standard_task_runner.py:63} INFO - Started process 1977 to run task
+[2025-12-04T01:33:49.030+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'signalsense_daily_pipeline', 'bq_score_new_stream', 'streamlit-trigger-1764812006', '--job-id', '27', '--raw', '--subdir', 'DAGS_FOLDER/signalsense_pipeline.py', '--cfg-path', '/tmp/tmpgpk5lctj']
+[2025-12-04T01:33:49.036+0000] {standard_task_runner.py:91} INFO - Job 27: Subtask bq_score_new_stream
+[2025-12-04T01:33:49.131+0000] {task_command.py:426} INFO - Running <TaskInstance: signalsense_daily_pipeline.bq_score_new_stream streamlit-trigger-1764812006 [running]> on host 27a575518531
+[2025-12-04T01:33:49.258+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='signalsense_daily_pipeline' AIRFLOW_CTX_TASK_ID='bq_score_new_stream' AIRFLOW_CTX_EXECUTION_DATE='2025-12-04T01:33:36.726878+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='streamlit-trigger-1764812006'
+[2025-12-04T01:33:49.262+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-12-04T01:33:49.291+0000] {connection.py:274} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2025-12-04T01:33:49.295+0000] {base.py:84} INFO - Using connection ID 'google_cloud_default' for task execution.
+[2025-12-04T01:33:49.350+0000] {bigquery.py:2872} INFO - Executing: {'query': {'query': '\n                CREATE OR REPLACE TABLE `signalsense-project.signalsense.new_stream_scored` AS\n                SELECT\n                  n.*,\n                  p.predicted_sla_breached AS predicted_label,\n                  p.predicted_sla_breached_probs[OFFSET(1)] AS risk_score\n                FROM ML.PREDICT(\n                  MODEL `signalsense-project.signalsense.sla_dnn`,\n                  (\n                    SELECT\n                      issue_id,\n                      issue_text,\n                      region,\n                      channel,\n                      raw_category,\n                      topic_id,\n                      EXTRACT(HOUR      FROM created_at) AS hour,\n                      EXTRACT(DAYOFWEEK FROM created_at) AS dow\n                    FROM `signalsense-project.signalsense.new_stream_issues`\n                  )\n                ) AS p\n                JOIN `signalsense-project.signalsense.new_stream_issues` AS n\n                USING (issue_id);\n                ', 'useLegacySql': False}}'
+[2025-12-04T01:33:49.352+0000] {bigquery.py:1670} INFO - Inserting job ***_signalsense_daily_pipeline_bq_score_new_stream_2025_12_04T01_33_36_726878_00_00_8171af718a31881949b8ffaca1c5ec1a
+[2025-12-04T01:33:52.793+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-12-04T01:33:52.820+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=signalsense_daily_pipeline, task_id=bq_score_new_stream, run_id=streamlit-trigger-1764812006, execution_date=20251204T013336, start_date=20251204T013348, end_date=20251204T013352
+[2025-12-04T01:33:52.855+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-12-04T01:33:52.886+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-12-04T01:33:52.889+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

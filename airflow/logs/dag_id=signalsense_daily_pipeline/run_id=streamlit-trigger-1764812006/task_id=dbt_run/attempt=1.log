@@ -1,0 +1,40 @@
+[2025-12-04T01:34:01.332+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-12-04T01:34:01.350+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: signalsense_daily_pipeline.dbt_run streamlit-trigger-1764812006 [queued]>
+[2025-12-04T01:34:01.361+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: signalsense_daily_pipeline.dbt_run streamlit-trigger-1764812006 [queued]>
+[2025-12-04T01:34:01.362+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-12-04T01:34:01.376+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run> on 2025-12-04 01:33:36.726878+00:00
+[2025-12-04T01:34:01.390+0000] {standard_task_runner.py:63} INFO - Started process 1983 to run task
+[2025-12-04T01:34:01.394+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'signalsense_daily_pipeline', 'dbt_run', 'streamlit-trigger-1764812006', '--job-id', '29', '--raw', '--subdir', 'DAGS_FOLDER/signalsense_pipeline.py', '--cfg-path', '/tmp/tmpej9_6m_b']
+[2025-12-04T01:34:01.399+0000] {standard_task_runner.py:91} INFO - Job 29: Subtask dbt_run
+[2025-12-04T01:34:01.484+0000] {task_command.py:426} INFO - Running <TaskInstance: signalsense_daily_pipeline.dbt_run streamlit-trigger-1764812006 [running]> on host 27a575518531
+[2025-12-04T01:34:01.599+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='signalsense_daily_pipeline' AIRFLOW_CTX_TASK_ID='dbt_run' AIRFLOW_CTX_EXECUTION_DATE='2025-12-04T01:33:36.726878+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='streamlit-trigger-1764812006'
+[2025-12-04T01:34:01.603+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-12-04T01:34:01.623+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-12-04T01:34:01.626+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '\n        cd /opt/***/dags/signalsense_dbt && dbt run\n        ']
+[2025-12-04T01:34:01.656+0000] {subprocess.py:86} INFO - Output:
+[2025-12-04T01:34:04.650+0000] {subprocess.py:93} INFO - [0m01:34:04  Running with dbt=1.9.0
+[2025-12-04T01:34:06.620+0000] {subprocess.py:93} INFO - [0m01:34:06  Registered adapter: bigquery=1.9.0
+[2025-12-04T01:34:07.474+0000] {subprocess.py:93} INFO - [0m01:34:07  Found 4 models, 4 data tests, 1 source, 492 macros
+[2025-12-04T01:34:07.479+0000] {subprocess.py:93} INFO - [0m01:34:07
+[2025-12-04T01:34:07.481+0000] {subprocess.py:93} INFO - [0m01:34:07  Concurrency: 4 threads (target='dev')
+[2025-12-04T01:34:07.482+0000] {subprocess.py:93} INFO - [0m01:34:07
+[2025-12-04T01:34:08.807+0000] {subprocess.py:93} INFO - [0m01:34:08  1 of 4 START sql table model signalsense_dbt.my_first_dbt_model ................ [RUN]
+[2025-12-04T01:34:08.808+0000] {subprocess.py:93} INFO - [0m01:34:08  2 of 4 START sql view model signalsense_dbt.stg_issues ......................... [RUN]
+[2025-12-04T01:34:10.048+0000] {subprocess.py:93} INFO - [0m01:34:10  2 of 4 OK created sql view model signalsense_dbt.stg_issues .................... [[32mCREATE VIEW (0 processed)[0m in 1.23s]
+[2025-12-04T01:34:10.053+0000] {subprocess.py:93} INFO - [0m01:34:10  3 of 4 START sql table model signalsense_dbt.mart_issues_by_region_day ......... [RUN]
+[2025-12-04T01:34:11.838+0000] {subprocess.py:93} INFO - [0m01:34:11  1 of 4 OK created sql table model signalsense_dbt.my_first_dbt_model ........... [[32mCREATE TABLE (2.0 rows, 0 processed)[0m in 3.02s]
+[2025-12-04T01:34:11.843+0000] {subprocess.py:93} INFO - [0m01:34:11  4 of 4 START sql view model signalsense_dbt.my_second_dbt_model ................ [RUN]
+[2025-12-04T01:34:14.474+0000] {subprocess.py:93} INFO - [0m01:34:14  4 of 4 OK created sql view model signalsense_dbt.my_second_dbt_model ........... [[32mCREATE VIEW (0 processed)[0m in 2.61s]
+[2025-12-04T01:34:14.481+0000] {subprocess.py:93} INFO - [0m01:34:14  3 of 4 OK created sql table model signalsense_dbt.mart_issues_by_region_day .... [[32mCREATE TABLE (185.0 rows, 54.8 MiB processed)[0m in 4.42s]
+[2025-12-04T01:34:14.545+0000] {subprocess.py:93} INFO - [0m01:34:14
+[2025-12-04T01:34:14.546+0000] {subprocess.py:93} INFO - [0m01:34:14  Finished running 2 table models, 2 view models in 0 hours 0 minutes and 7.06 seconds (7.06s).
+[2025-12-04T01:34:14.627+0000] {subprocess.py:93} INFO - [0m01:34:14
+[2025-12-04T01:34:14.628+0000] {subprocess.py:93} INFO - [0m01:34:14  [32mCompleted successfully[0m
+[2025-12-04T01:34:14.629+0000] {subprocess.py:93} INFO - [0m01:34:14
+[2025-12-04T01:34:14.631+0000] {subprocess.py:93} INFO - [0m01:34:14  Done. PASS=4 WARN=0 ERROR=0 SKIP=0 TOTAL=4
+[2025-12-04T01:34:15.961+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-12-04T01:34:15.963+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-12-04T01:34:16.004+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=signalsense_daily_pipeline, task_id=dbt_run, run_id=streamlit-trigger-1764812006, execution_date=20251204T013336, start_date=20251204T013401, end_date=20251204T013416
+[2025-12-04T01:34:16.071+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-12-04T01:34:16.094+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-04T01:34:16.103+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

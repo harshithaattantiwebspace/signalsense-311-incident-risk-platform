@@ -1,0 +1,20 @@
+[2025-12-03T09:31:57.953+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-12-03T09:31:57.977+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: signalsense_daily_pipeline.bq_append_to_issues_scored streamlit-trigger-1764754301 [queued]>
+[2025-12-03T09:31:57.990+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: signalsense_daily_pipeline.bq_append_to_issues_scored streamlit-trigger-1764754301 [queued]>
+[2025-12-03T09:31:57.991+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-12-03T09:31:58.007+0000] {taskinstance.py:2330} INFO - Executing <Task(BigQueryInsertJobOperator): bq_append_to_issues_scored> on 2025-12-03 09:31:41.705631+00:00
+[2025-12-03T09:31:58.019+0000] {standard_task_runner.py:63} INFO - Started process 287 to run task
+[2025-12-03T09:31:58.026+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'signalsense_daily_pipeline', 'bq_append_to_issues_scored', 'streamlit-trigger-1764754301', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/signalsense_pipeline.py', '--cfg-path', '/tmp/tmplnid0keo']
+[2025-12-03T09:31:58.030+0000] {standard_task_runner.py:91} INFO - Job 9: Subtask bq_append_to_issues_scored
+[2025-12-03T09:31:58.127+0000] {task_command.py:426} INFO - Running <TaskInstance: signalsense_daily_pipeline.bq_append_to_issues_scored streamlit-trigger-1764754301 [running]> on host 98179ae64f3c
+[2025-12-03T09:31:58.261+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='signalsense_daily_pipeline' AIRFLOW_CTX_TASK_ID='bq_append_to_issues_scored' AIRFLOW_CTX_EXECUTION_DATE='2025-12-03T09:31:41.705631+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='streamlit-trigger-1764754301'
+[2025-12-03T09:31:58.268+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-12-03T09:31:58.305+0000] {connection.py:274} WARNING - Connection schemes (type: google_cloud_platform) shall not contain '_' according to RFC3986.
+[2025-12-03T09:31:58.309+0000] {base.py:84} INFO - Using connection ID 'google_cloud_default' for task execution.
+[2025-12-03T09:31:58.380+0000] {bigquery.py:2872} INFO - Executing: {'query': {'query': '\n                INSERT INTO `signalsense-project.signalsense.issues_scored`\n                SELECT *\n                FROM `signalsense-project.signalsense.new_stream_scored`;\n                ', 'useLegacySql': False}}'
+[2025-12-03T09:31:58.383+0000] {bigquery.py:1670} INFO - Inserting job ***_signalsense_daily_pipeline_bq_append_to_issues_scored_2025_12_03T09_31_41_705631_00_00_9f6768fe3b525b438155578765cccda4
+[2025-12-03T09:32:00.822+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-12-03T09:32:00.874+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=signalsense_daily_pipeline, task_id=bq_append_to_issues_scored, run_id=streamlit-trigger-1764754301, execution_date=20251203T093141, start_date=20251203T093157, end_date=20251203T093200
+[2025-12-03T09:32:00.945+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-12-03T09:32:00.983+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-12-03T09:32:00.988+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

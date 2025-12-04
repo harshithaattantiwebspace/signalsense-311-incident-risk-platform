@@ -1,0 +1,30 @@
+[0m16:39:28.975780 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018B173DC6E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018B12DA6FD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018B19243C50>]}
+
+
+============================== 16:39:28.983142 | b1a87988-5144-46aa-9963-760411fef377 ==============================
+[0m16:39:28.983142 [info ] [MainThread]: Running with dbt=1.11.0-rc2
+[0m16:39:28.983998 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'log_format': 'default', 'no_print': 'None', 'target_path': 'None', 'use_colors': 'True', 'warn_error': 'None', 'indirect_selection': 'eager', 'fail_fast': 'False', 'log_path': 'logs', 'send_anonymous_usage_stats': 'True', 'partial_parse': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'use_experimental_parser': 'False', 'version_check': 'True', 'quiet': 'False', 'introspect': 'True', 'empty': 'None', 'log_cache_events': 'False', 'debug': 'False', 'profiles_dir': 'C:\\Users\\harsh\\.dbt', 'invocation_command': 'dbt init signalsense_dbt', 'cache_selected_only': 'False', 'write_json': 'True'}
+[0m16:39:29.007867 [info ] [MainThread]: Creating dbt configuration folder at C:\Users\harsh\.dbt
+[0m16:39:29.010582 [debug] [MainThread]: Starter project path: c:\Users\harsh\OneDrive\Desktop\SignalSense\.venv\Lib\site-packages\dbt\include\starter_project
+[0m16:39:29.053056 [info ] [MainThread]: 
+Your new dbt project "signalsense_dbt" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m16:39:29.053979 [info ] [MainThread]: Setting up your profile.
+[0m16:48:58.395739 [info ] [MainThread]: Profile signalsense_dbt written to C:\Users\harsh\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m16:48:58.398158 [debug] [MainThread]: Command `dbt init` succeeded at 16:48:58.398031 after 569.59 seconds
+[0m16:48:58.398521 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018B3F4783E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018B3F45D130>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018B3F36BDF0>]}
+[0m16:48:58.398901 [debug] [MainThread]: Flushing usage events
+[0m16:48:59.269442 [debug] [MainThread]: An error was encountered while trying to flush usage events

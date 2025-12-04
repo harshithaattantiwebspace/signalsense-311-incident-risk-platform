@@ -1,0 +1,12 @@
+signalsense_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: signalsense-project
+      dataset: signalsense_dbt
+      keyfile: /opt/airflow/gcp-key.json
+      threads: 4
+      location: US
+      priority: interactive
