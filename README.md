@@ -148,11 +148,10 @@ The `app/` folder contains a **Streamlit** app that:
   - risk by region
   - risk-bucket distribution
 - Lists recent **high risk** incidents.
-- Uses an LLM to generate narrative insights from the mart  
-  (e.g. which regions / complaint types are currently driving breaches, and how this week compares to the previous one).
 
-- LLM Insights (Narrative Analysis)
-The UI includes an AI-powered narrative generator using an LLM (OpenAI GPT).  
+
+LLM Insights (Narrative Analysis)
+The UI includes an AI-powered narrative generator using an LLM (OpenAI GPT-5-mini).  
 The model receives:
  - aggregated metrics from the dbt mart  
  - region-level risk trends  
