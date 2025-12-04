@@ -133,7 +133,7 @@ This turns the project from a one off notebook into a repeatable, schedulable da
 
 ---
 
-## 7. Streamlit UI with LLM Insights
+## 7. Streamlit UI 
 
 The `app/` folder contains a **Streamlit** app that:
 
@@ -149,8 +149,9 @@ The `app/` folder contains a **Streamlit** app that:
   - risk-bucket distribution
 - Lists recent **high risk** incidents.
 
+---
 
-LLM Insights (Narrative Analysis)
+## 8. LLM Insights (Narrative Analysis)
 The UI includes an AI-powered narrative generator using an LLM (OpenAI GPT-5-mini).  
 The model receives:
  - aggregated metrics from the dbt mart  
@@ -168,7 +169,7 @@ This is the operational view meant for non technical stakeholders.
 
 ---
 
-## 8. Power BI Dashboard
+## 9. Power BI Dashboard
 
 A separate **Power BI** report is built on `mart_issues_by_region_day` with:
 
@@ -181,7 +182,7 @@ A separate **Power BI** report is built on `mart_issues_by_region_day` with:
 
 ---
 
-## 9. Tech Stack
+## 10. Tech Stack
 
 - **Language:** Python (ETL, Kafka producer/consumer, Streamlit)
 - **Data warehouse:** Google BigQuery
