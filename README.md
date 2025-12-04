@@ -151,19 +151,19 @@ The `app/` folder contains a **Streamlit** app that:
 - Uses an LLM to generate narrative insights from the mart  
   (e.g. which regions / complaint types are currently driving breaches, and how this week compares to the previous one).
 
- # LLM Insights (Narrative Analysis)
+- LLM Insights (Narrative Analysis)
 The UI includes an AI-powered narrative generator using an LLM (OpenAI GPT).  
 The model receives:
-- aggregated metrics from the dbt mart  
-- region-level risk trends  
-- risk-bucket distributions  
-- a snapshot of recent high-risk incidents  
+ - aggregated metrics from the dbt mart  
+ - region-level risk trends  
+ - risk-bucket distributions  
+ - a snapshot of recent high-risk incidents  
 
 The LLM produces a **human-readable summary** answering questions like:
-- *“Which regions show emerging SLA risk?”*  
-- *“What operational patterns stand out this week?”*  
-- *“Which issue types or keywords are driving high-risk incidents?”*  
-- *“How does this period compare to the previous one?”* 
+ - *“Which regions show emerging SLA risk?”*  
+ - *“What operational patterns stand out this week?”*  
+ - *“Which issue types or keywords are driving high-risk incidents?”*  
+ - *“How does this period compare to the previous one?”* 
 
 This is the operational view meant for non technical stakeholders.
 
