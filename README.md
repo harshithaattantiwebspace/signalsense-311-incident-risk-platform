@@ -9,7 +9,7 @@ The platform:
 - Predicts SLA breach risk with **BigQuery ML** (logistic regression, boosted trees, DNN)
 - Builds analytics marts with **dbt**
 - Orchestrates the daily workflow with **Airflow**
-- Serves an operational UI with **Streamlit** and a BI view with **Power BI**
+- Serves an operational UI with **Streamlit** and a BI view with **Power BI** and **LLM (GPT-5-mini) Insights**
 
 ---
 
