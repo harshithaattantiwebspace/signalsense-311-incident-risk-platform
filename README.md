@@ -1,10 +1,10 @@
 # SignalSense – 311 Incident SLA Risk Platform
 
-SignalSense is an end-to-end data engineering project that turns raw 311 service-request data into real-time SLA risk insights.
+SignalSense is an end-to-end data engineering project that turns raw 311 service request data into real time SLA risk insights.
 
 The platform:
 
-- Cleans and enriches ~1M+ NYC-style 311 incidents
+- Cleans and enriches ~1M+ NYC style 311 incidents
 - Streams new incidents through **Kafka** into **BigQuery**
 - Predicts SLA breach risk with **BigQuery ML** (logistic regression, boosted trees, DNN)
 - Builds analytics marts with **dbt**
@@ -42,12 +42,12 @@ Processing in `prep_data.py`:
 
 ### NLP features on complaint text
 
-The raw data contains free-text fields such as **Complaint Type**, **Descriptor** and **Resolution Description**.  
+The raw data contains free text fields such as **Complaint Type**, **Descriptor** and **Resolution Description**.  
 In `prep_data.py` these are combined and turned into simple NLP features:
 
 - Build `raw_text` by concatenating complaint-type, descriptor and resolution text
 - Clean the text:
-  - lower-casing
+  - lower casing
   - removing punctuation, digits and extra whitespace
   - removing common stopwords (e.g. “the”, “and”, “please”, “address”)
 - Tokenize into words and create:
@@ -66,7 +66,7 @@ The cleaned, enriched dataset is written to BigQuery as **`issues_enriched`** an
 
 ## 3. Streaming Ingestion (Kafka → BigQuery)
 
-To simulate near real-time operations:
+To simulate near real time operations:
 
 - A **Kafka producer** writes new incident events to a topic.
 - A **Kafka consumer** reads events, applies the same transforms as batch
@@ -95,18 +95,18 @@ The **DNN classifier** achieved the best accuracy / ROC AUC, so it was selected 
 Predictions are written back to BigQuery in `issues_scored`:
 
 - `sla_breach_score` – probability of SLA breach (0–1)
-- `risk_bucket` – human-friendly risk band (very_low / low / medium / high)
+- `risk_bucket` – human friendly risk band (very_low / low / medium / high)
 
 These fields are the core analysis output used by the UI and dashboards.
 
 ---
 
-## 5. Analytics Mart with dbt
+## 5. Analytics Mart with DBT
 
-dbt provides the semantic layer on top of the scored incidents:
+DBT provides the semantic layer on top of the scored incidents:
 
 - `stg_issues` – staging view over `issues_scored`
-- `mart_issues_by_region_day` – daily-grain mart per region with:
+- `mart_issues_by_region_day` – daily grain mart per region with:
   - `issue_date`
   - `region`
   - `total_issues`
@@ -129,7 +129,7 @@ A daily **Airflow DAG** wires everything together:
 3. Append to `issues_scored`.
 4. Run `dbt run` to refresh `mart_issues_by_region_day`.
 
-This turns the project from a one-off notebook into a repeatable, schedulable data pipeline.
+This turns the project from a one off notebook into a repeatable, schedulable data pipeline.
 
 ---
 
@@ -142,16 +142,16 @@ The `app/` folder contains a **Streamlit** app that:
   - total incidents
   - overall SLA breach rate
   - average risk score
-  - share of high-risk tickets
+  - share of high risk tickets
 - Plots:
   - incidents vs breach rate over time
   - risk by region
   - risk-bucket distribution
-- Lists recent **high-risk** incidents.
+- Lists recent **high risk** incidents.
 - Uses an LLM to generate narrative insights from the mart  
   (e.g. which regions / complaint types are currently driving breaches, and how this week compares to the previous one).
 
-This is the operational view meant for non-technical stakeholders.
+This is the operational view meant for non technical stakeholders.
 
 ---
 
@@ -160,12 +160,11 @@ This is the operational view meant for non-technical stakeholders.
 A separate **Power BI** report is built on `mart_issues_by_region_day` with:
 
 - KPI cards (total incidents, breach rate, risk)
-- Time-series of incidents vs breach rate
+- Time series of incidents vs breach rate
 - Region comparison charts
 - 100% stacked bars for risk-bucket mix
 - Detail table for export
 
-Power BI is used for interactive BI and presentation-ready visuals.
 
 ---
 
